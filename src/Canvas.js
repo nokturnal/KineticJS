@@ -283,11 +283,18 @@
             if(stroke || strokeWidth) {
                 context.save();
                 this._applyLineCap(shape);
-                if(dashArray) {
-                    if(context.setLineDash) {
+                if(dashArray) {				
+                    if(context.setLineDash) { 
                         context.setLineDash(dashArray);
                     }
+		    else if ("mozDash" in context) {
+			context.mozDash = dashArray;				
+		    }
+		    else if ("webkitLineDash" in context) { 
+			context.webkitLineDash = dashArray;	
+		    }
                 }
+
                 if(!skipShadow && shape.hasShadow()) {
                     this._applyShadow(shape);
                 }
