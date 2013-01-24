@@ -280,7 +280,7 @@
         },
         _stroke: function(shape, skipShadow) {
             var context = this.context, stroke = shape.getStroke(), strokeWidth = shape.getStrokeWidth(), dashArray = shape.getDashArray();
-            if(stroke || strokeWidth) {
+            if(stroke || strokeWidth) { 
                 context.save();
                 this._applyLineCap(shape);
                 if(dashArray) {				
